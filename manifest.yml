@@ -1,8 +1,15 @@
+---
+declared-services:
+  conversation-simple-demo-test1:
+    label: conversation
+    plan: free
 applications:
-- path: .
+- name: conversation-simple
+  command: npm start
+  path: .
   memory: 256M
   instances: 1
-  domain: mybluemix.net
-  name: conversation_simpleApp
-  host: conversation-simpleApp
-  disk_quota: 1024M
+  services:
+  - conversation-simple-demo-test1
+  env:
+    NPM_CONFIG_PRODUCTION: false
